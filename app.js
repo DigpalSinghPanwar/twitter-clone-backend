@@ -1,8 +1,9 @@
 const cloudinary = require("cloudinary").v2;
 const express = require("express");
-const authRouter = require("./routes/authRoutes");
-const userRouter = require("./routes/userRoutes");
-const postRouter = require("./routes/postRoutes");
+const authRouter = require("./routes/authRoute");
+const userRouter = require("./routes/userRoute");
+const postRouter = require("./routes/postRoute");
+const notificationRouter = require("./routes/notificationRoute");
 const cookieParser = require("cookie-parser");
 
 const app = express();
@@ -23,5 +24,6 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/post", postRouter);
+app.use("/api/v1/notification", notificationRouter);
 
 module.exports = app;
